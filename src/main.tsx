@@ -4,11 +4,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { MantineProvider } from '@mantine/core'
+import { theme } from "./theme/theme.ts";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/Routes.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MantineProvider>
-      <App />
+    <MantineProvider defaultColorScheme="auto" theme={theme}>
+      <RouterProvider router={router} />
     </MantineProvider>
   </StrictMode>,
 )
