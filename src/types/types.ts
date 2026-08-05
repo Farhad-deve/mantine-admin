@@ -1,4 +1,3 @@
-import type { MantineColorScheme } from "@mantine/core";
 import type { IconType } from "react-icons";
 
 export interface navItem {
@@ -6,12 +5,6 @@ export interface navItem {
   title: string;
   icon: IconType;
   path: string;
-}
-
-export interface ContextType {
-  colorScheme: MantineColorScheme;
-  toggleColorScheme: () => void;
-  setColorScheme: (scheme: "light" | "dark" | "auto") => void;
 }
 
 export interface Product {

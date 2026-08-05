@@ -1,6 +1,5 @@
 import { Center, Group, Loader, Text } from "@mantine/core"
 
-
 const LoadingPage = () => {
   return (
     <>
