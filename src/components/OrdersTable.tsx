@@ -20,7 +20,7 @@ const OrdersTable = () => {
     const rows = orders.map((order) => (
         <Table.Tr key={order.id}>
             <Table.Td>
-                <Group>
+                <Group gap={"xs"}>
                     <Avatar color="blue" size={"sm"} radius="xl" >{order.initials}</Avatar>
                     <Text size="sm">{order.customer}</Text>
                 </Group>
@@ -54,19 +54,21 @@ const OrdersTable = () => {
         <Stack gap={'lg'}>
             <Text fw={500}>So'nggi buyurtmalar</Text>
 
-            <Table highlightOnHover verticalSpacing={"sm"}> 
-                <Table.Thead>
-                    <Table.Tr>
-                        <Table.Th>Mijoz</Table.Th>
-                        <Table.Th>Mahsulot</Table.Th>
-                        <Table.Th>Summa</Table.Th>
-                        <Table.Th>Holat</Table.Th>
-                        <Table.Th>Sana</Table.Th>
-                    </Table.Tr>
-                </Table.Thead>
+            <Table.ScrollContainer minWidth={300}>
+                <Table w={"100%"} highlightOnHover verticalSpacing={"sm"}> 
+                    <Table.Thead>
+                        <Table.Tr>
+                            <Table.Th>Mijoz</Table.Th>
+                            <Table.Th>Mahsulot</Table.Th>
+                            <Table.Th>Summa</Table.Th>
+                            <Table.Th>Holat</Table.Th>
+                            <Table.Th>Sana</Table.Th>
+                        </Table.Tr>
+                    </Table.Thead>
 
-                <Table.Tbody>{rows}</Table.Tbody>
-            </Table>
+                    <Table.Tbody>{rows}</Table.Tbody>
+                </Table>
+            </Table.ScrollContainer>
         </Stack>
     </Card>
     </>

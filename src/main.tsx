@@ -9,7 +9,7 @@ import { theme } from "./theme/theme.ts";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <MantineProvider defaultColorScheme="dark" theme={theme}>
+      <MantineProvider defaultColorScheme="auto" theme={theme}>
         <RouterProvider router={router} />
       </MantineProvider>
   </StrictMode>,
