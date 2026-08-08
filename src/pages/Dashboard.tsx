@@ -35,7 +35,7 @@ const Dashboard = () => {
       </Grid>
 
       <Grid>
-        <Grid.Col span={8}>
+        <Grid.Col span={}>
           <OrdersTable />
         </Grid.Col>
 
