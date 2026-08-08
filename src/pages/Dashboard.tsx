@@ -1,9 +1,10 @@
-import { Badge, Box, Card, Center, Grid, Group, Progress, RingProgress, SemiCircleProgress, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
+import { Grid, SimpleGrid, Stack, Text, Title } from "@mantine/core"
 import KpiStatCard from "../components/KpiStatCard";
 import MonthlyGoals from "../components/MonthlyGoals";
 import TrafficSources from "../components/TrafficSources";
 import PlanCompletion from "../components/PlanCompletion";
 import OrdersTable from "../components/OrdersTable";
+import LastTimeline from "../components/LastTimeline";
 
 
 const Dashboard = () => {
@@ -21,29 +22,28 @@ const Dashboard = () => {
       </SimpleGrid>
 
       <Grid align="stretch">
-        <Grid.Col span={{ base: 12, lg: 4}}>
+        <Grid.Col span={{ base: 12, md: 4}}>
           <MonthlyGoals />
         </Grid.Col>
 
-        <Grid.Col span={{ base: 12, lg: 4}}>
+        <Grid.Col span={{ base: 12, md: 4}}>
           <TrafficSources />
         </Grid.Col>
 
-        <Grid.Col span={{ base: 12, lg: 4}}>
+        <Grid.Col span={{ base: 12, md: 4}}>
           <PlanCompletion />
         </Grid.Col>
       </Grid>
 
       <Grid>
-        <Grid.Col span={}>
+        <Grid.Col span={{ base: 12, lg: 8 }}>
           <OrdersTable />
         </Grid.Col>
 
-        <Grid.Col span={4}>
-          
+        <Grid.Col span={{ base: 12, lg: 4 }}>
+          <LastTimeline />
         </Grid.Col>
       </Grid>
-
     </Stack>
     </>
   )

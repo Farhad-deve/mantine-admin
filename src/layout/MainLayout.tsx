@@ -136,7 +136,7 @@ const MainLayout = () => {
           </Stack>
         </AppShell.Navbar>
 
-        <AppShell.Main>
+        <AppShell.Main bg={colorScheme === "dark" ? "dark" : "white"}>
           <Suspense fallback={<LoadingPage />}>
             <Outlet />
           </Suspense>
