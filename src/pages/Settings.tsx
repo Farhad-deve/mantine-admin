@@ -1,7 +1,9 @@
+import { FiAlertCircle } from "react-icons/fi"; 
 import { FiRotateCcw } from "react-icons/fi"; 
 import { FiCheck } from "react-icons/fi"; 
-import { ActionIcon, Box, Button, Card, Code, ColorSwatch, Grid, Group, SegmentedControl, Stack, Text, ThemeIcon, Title, Tooltip, UnstyledButton } from "@mantine/core"
-import { useState } from "react";
+import { Alert, Badge, Box, Button, Card, Code, ColorSwatch, Grid, Group, Progress, SegmentedControl, Stack, Text, TextInput, Title, Tooltip } from "@mantine/core"
+import { useContext, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Settings = () => {
 
@@ -14,11 +16,18 @@ const Settings = () => {
     { color: "red", value: "var(--mantine-color-red-6)" },
   ];
 
-  const [selectedColor, setSelectedColor] = useState("blue");
+  const { primaryColor, setPrimaryColor } = useContext(ThemeContext)!;
+
+  const currentThemeCode = `createTheme({
+  primaryColor: "${primaryColor}",
+  defaultRadius: "sm",
+})
+  
+// colorScheme: "dark"`
 
   return (
     <>
-        <Stack>
+        <Stack gap={"lg"}>
           <Stack gap={"4px"}>
             <Title order={2} fw={500}>Sozlamalar</Title>
             <Text c={"dimmed"} size="sm">Theme object bilan tajriba qiling — o'zgarish barcha sahifalarga tarqaladi</Text>
@@ -37,7 +46,7 @@ const Settings = () => {
                       </Text>
                     </Box>
 
-                  <SegmentedControl data={[
+                  <SegmentedControl transitionDuration={0} data={[
                     { label: "Yorug'", value: "light" },
                     { label: "Qorong'i", value: "dark" },
                     { label: "Avtomatik", value: "auto" },
@@ -45,53 +54,95 @@ const Settings = () => {
                   </Stack>
                 </Card>
 
-                <Card>
+                <Card withBorder>
                   <Stack gap={"sm"}>
                     <Box>
                       <Text fw={500}>2. Asosiy rang</Text>
                       <Text c={"dimmed"} size="sm">Theme'dagi <Code>primaryColor</Code> maydoni</Text>
                     </Box>
 
-                    <Group>
+                    <Group gap={"sm"}>
                       {colorSwatchData.map((color) => (
                         <Tooltip key={color.color} label={color.color}>
                           <ColorSwatch
+                            size={"2rem"}
                             component="button"
-                            onClick={() => setSelectedColor(color.color)} 
+                            onClick={() => setPrimaryColor(color.color)} 
                             color={color.value}
                             style={{ cursor: "pointer" }}>
-                              {selectedColor === color.color && <FiCheck size={20} />}
+                              {primaryColor === color.color && <FiCheck />}
                           </ColorSwatch>
                         </Tooltip>
                       ))}
                     </Group>
 
-                    <Text c={"dimmed"}>"brand" — mantine-theme.ts da o'zimiz qo'shgan rang</Text>
+                    <Text c={"dimmed"} size="xs">"brand" — mantine-theme.ts da o'zimiz qo'shgan rang</Text>
                   </Stack>
                 </Card>
 
-                <Card>
-                  <Text>3. Burchaklar</Text>
-                  <Text>Theme'dagi <Code>defaultRadius</Code> maydoni </Text>
-                  <SegmentedControl
-                    data={[
-                      { label: "XS", value: "xs" },
-                      { label: "SM", value: "sm" },
-                      { label: "MD", value: "md" },
-                      { label: "LG", value: "lg" },
-                      { label: "XL", value: "xl" },
-                    ]}
-                  />
+                <Card withBorder>
+                  <Stack gap={"sm"}>
+                    <Box>
+                      <Text fw={500}>3. Burchaklar</Text>
+                      <Text c={"dimmed"} size="sm">Theme'dagi <Code>defaultRadius</Code> maydoni </Text>
+                    </Box>
+                  
+                    <SegmentedControl
+                      data={[
+                        { label: "XS", value: "xs" },
+                        { label: "SM", value: "sm" },
+                        { label: "MD", value: "md" },
+                        { label: "LG", value: "lg" },
+                        { label: "XL", value: "xl" },
+                      ]}
+                    />
+                  </Stack>
                 </Card>
 
-                <Button variant="default" leftSection={<FiRotateCcw />}>
+                <Button variant="default" leftSection={<FiRotateCcw size={15} />}>
                   Standart holatga qaytarish
                 </Button>
               </Stack>
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, md: 6 }}>
-            
+              <Card withBorder>
+                <Stack>
+                  <Group justify="space-between">
+                    <Text fw={500}>Jonli ko'rinish</Text>
+                    <Badge variant="light">{primaryColor}</Badge>
+                  </Group>
+
+                  <Group>
+                    <Button>Asosiy</Button>
+                    <Button variant="light">Yengil</Button>
+                    <Button variant="outline">Chiziqli</Button>
+                    <Button variant="default">Default</Button>
+                  </Group>
+
+                  <Group>
+                    <Badge>YANGI</Badge>
+                    <Badge variant="light" color="green">FAOL</Badge>
+                    <Badge variant="outline" color="red">MUHIM</Badge>
+                  </Group>
+
+                  <TextInput label="Input namunasi" placeholder="Matn kiriting" />
+                  <Progress value={72} />
+
+                  <Alert title="Eslatma" icon={<FiAlertCircle style={{ transform: "rotate(180deg)" }} />}>
+                    Bu blokdagi hamma narsa theme qiymatlariga bog'langan.
+                  </Alert>
+
+                  <Box>
+                    <Stack gap={"3px"}>
+                      <Text fw={500} size="sm">Joriy theme:</Text>
+                      <Code block>
+                          {currentThemeCode}
+                      </Code>
+                    </Stack>
+                  </Box>
+                </Stack>
+              </Card>
             </Grid.Col>
           </Grid>
         </Stack>
