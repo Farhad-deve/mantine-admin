@@ -1,8 +1,6 @@
-import { FiAlertCircle } from "react-icons/fi"; 
-import { FiRotateCcw } from "react-icons/fi"; 
-import { FiCheck } from "react-icons/fi"; 
-import { Alert, Badge, Box, Button, Card, Code, ColorSwatch, Grid, Group, Progress, SegmentedControl, Stack, Text, TextInput, Title, Tooltip } from "@mantine/core"
-import { useContext, useState } from "react";
+import { FiAlertCircle, FiRotateCcw, FiCheck } from "react-icons/fi"; 
+import { Alert, Badge, Box, Button, Card, Code, ColorSwatch, Grid, Group, Progress, SegmentedControl, Stack, Text, TextInput, Title, Tooltip, useMantineColorScheme, type MantineRadius } from "@mantine/core"
+import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const Settings = () => {
@@ -16,14 +14,21 @@ const Settings = () => {
     { color: "red", value: "var(--mantine-color-red-6)" },
   ];
 
-  const { primaryColor, setPrimaryColor } = useContext(ThemeContext)!;
+  const { primaryColor, setPrimaryColor, defaultRadius, setDefaultRadius } = useContext(ThemeContext)!;
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
+
+  const handleReset = () => {
+    setPrimaryColor("blue");
+    setDefaultRadius("sm");
+    setColorScheme("auto");
+  }
 
   const currentThemeCode = `createTheme({
   primaryColor: "${primaryColor}",
-  defaultRadius: "sm",
+  defaultRadius: "${defaultRadius}",
 })
   
-// colorScheme: "dark"`
+// colorScheme: "${colorScheme}"`
 
   return (
     <>
@@ -46,7 +51,10 @@ const Settings = () => {
                       </Text>
                     </Box>
 
-                  <SegmentedControl transitionDuration={0} data={[
+                  <SegmentedControl transitionDuration={0}
+                  value={colorScheme}
+                  onChange={setColorScheme}
+                  data={[
                     { label: "Yorug'", value: "light" },
                     { label: "Qorong'i", value: "dark" },
                     { label: "Avtomatik", value: "auto" },
@@ -88,6 +96,8 @@ const Settings = () => {
                     </Box>
                   
                     <SegmentedControl
+                      value={defaultRadius}
+                      onChange={(value) => setDefaultRadius(value as MantineRadius)}
                       data={[
                         { label: "XS", value: "xs" },
                         { label: "SM", value: "sm" },
@@ -99,7 +109,10 @@ const Settings = () => {
                   </Stack>
                 </Card>
 
-                <Button variant="default" leftSection={<FiRotateCcw size={15} />}>
+                <Button
+                  variant="default"
+                  onClick={handleReset}
+                  leftSection={<FiRotateCcw size={15} />}>
                   Standart holatga qaytarish
                 </Button>
               </Stack>

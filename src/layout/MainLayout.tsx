@@ -25,6 +25,7 @@ import {
   Title,
   Tooltip,
   UnstyledButton,
+  useComputedColorScheme,
 } from "@mantine/core";
 
 import { useDisclosure } from "@mantine/hooks";
@@ -47,7 +48,8 @@ const MainLayout = () => {
     { id: 5, title: "Sozlamalar", path: "/settings", icon: FiSettings },
   ];
 
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme("light");
 
   return (
     <>
@@ -80,14 +82,14 @@ const MainLayout = () => {
             </Group>
 
             <Group gap={"sm"}>
-              <Tooltip label={`${colorScheme === "dark" ? "Yorug' rejim" : "Qorong'u rejim"}`}>
+              <Tooltip label={`${computedColorScheme === "dark" ? "Yorug' rejim" : "Qorong'u rejim"}`}>
                 <ActionIcon
-                  onClick={() => toggleColorScheme()}
+                  onClick={() => setColorScheme(computedColorScheme === "dark" ? "light" : "dark")}
                   variant="default"
                   p={"md"}
                 >
                   <Center>
-                    {colorScheme === "dark" ? <BsSun size={18} /> : <BiMoon size={18} />}
+                    {computedColorScheme === "dark" ? <BsSun size={18} /> : <BiMoon size={18} />}
                   </Center>
                 </ActionIcon>
               </Tooltip>
@@ -136,7 +138,7 @@ const MainLayout = () => {
           </Stack>
         </AppShell.Navbar>
 
-        <AppShell.Main bg={colorScheme === "dark" ? "dark" : "gray.0"}>
+        <AppShell.Main>
           <Suspense fallback={<LoadingPage />}>
             <Outlet />
           </Suspense>

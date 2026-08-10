@@ -1,7 +1,7 @@
 import { useLocalStorage } from "@mantine/hooks";
 import React, { useMemo } from "react";
 import { theme } from "../theme/theme";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, type MantineRadius } from "@mantine/core";
 import { ThemeContext } from "../context/ThemeContext";
 
 type ThemeProviderProps = {
@@ -14,18 +14,24 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     defaultValue: "blue",
   });
 
+  const [defaultRadius, setDefaultRadius] = useLocalStorage<MantineRadius>({
+    key: "admin-default-radius",
+    defaultValue: "sm",
+  });
+
   const currentTheme = useMemo(
     () => ({
       ...theme,
       primaryColor,
+      defaultRadius,
     }),
-    [primaryColor],
+    [primaryColor, defaultRadius]
   );
 
   return (
     <>
-      <ThemeContext.Provider value={{ primaryColor, setPrimaryColor }}>
-        <MantineProvider theme={currentTheme} defaultColorScheme="dark">
+      <ThemeContext.Provider value={{ primaryColor, setPrimaryColor, defaultRadius, setDefaultRadius }}>
+        <MantineProvider theme={currentTheme} defaultColorScheme="auto">
           {children}
         </MantineProvider>
       </ThemeContext.Provider>
