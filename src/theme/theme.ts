@@ -17,4 +17,16 @@ export const theme = createTheme({
       "#1112a0",
     ],
   },
+
+  headings: {
+    fontWeight: "500",
+    sizes: {
+      h1: { fontSize: "1.625rem" },
+      h2: { fontSize: "1.375rem" },
+      h3: { fontSize: "1.125rem" },
+      h4: { fontSize: "1rem" },
+      h5: { fontSize: "0.875rem" },
+      h6: { fontSize: "0.75rem" },
+    }
+  }
 });

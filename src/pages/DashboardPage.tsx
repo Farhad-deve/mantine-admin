@@ -13,7 +13,7 @@ const Dashboard = () => {
     <>
     <Stack>
       <Stack gap={"4px"}>
-        <Title fw={500} order={2}>Dashboard</Title>
+        <Title fw={500}>Dashboard</Title>
         <Text c={"dimmed"} size="sm">Mantine'ning statistika komponentlari: Progress, RingProgress, SemiCircleProgress, Table, Timeline</Text>
       </Stack>
 

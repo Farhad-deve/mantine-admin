@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { lazy } from "react";
 
-const DashboardPage = lazy(() => import('../pages/Dashboard'));
-const ProductsPage = lazy(() => import('../pages/Products'));
-const UsersPage = lazy(() => import('../pages/Users'));
-const FormsPage = lazy(() => import('../pages/Forms'));
-const SettingsPage = lazy(() => import('../pages/Settings'));
+const DashboardPage = lazy(() => import('../pages/DashboardPage'));
+const ProductsPage = lazy(() => import('../pages/ProductsPage'));
+const UsersPage = lazy(() => import('../pages/UsersPage'));
+const FormsPage = lazy(() => import('../pages/FormsPage'));
+const SettingsPage = lazy(() => import('../pages/SettingsPage'));
 
 export const router = createBrowserRouter([
     {
