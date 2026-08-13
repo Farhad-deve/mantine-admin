@@ -3,7 +3,6 @@ import type { Order } from "../types/types";
 
 
 const OrdersTable = () => {
-
     function formatPrice(value: number) {
         const grouped = String(value).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         return `${grouped} so'm`;
@@ -50,27 +49,27 @@ const OrdersTable = () => {
     
   return (
     <>
-    <Card withBorder>
-        <Stack gap={'lg'}>
-            <Text fw={500}>So'nggi buyurtmalar</Text>
+        <Card withBorder>
+            <Stack gap={'lg'}>
+                <Text fw={500}>So'nggi buyurtmalar</Text>
 
-            <Table.ScrollContainer minWidth={600}>
-                <Table w={"100%"} highlightOnHover verticalSpacing={"sm"}> 
-                    <Table.Thead>
-                        <Table.Tr>
-                            <Table.Th>Mijoz</Table.Th>
-                            <Table.Th>Mahsulot</Table.Th>
-                            <Table.Th>Summa</Table.Th>
-                            <Table.Th>Holat</Table.Th>
-                            <Table.Th>Sana</Table.Th>
-                        </Table.Tr>
-                    </Table.Thead>
+                <Table.ScrollContainer minWidth={600}>
+                    <Table w={"100%"} highlightOnHover verticalSpacing={"sm"}> 
+                        <Table.Thead>
+                            <Table.Tr>
+                                <Table.Th>Mijoz</Table.Th>
+                                <Table.Th>Mahsulot</Table.Th>
+                                <Table.Th>Summa</Table.Th>
+                                <Table.Th>Holat</Table.Th>
+                                <Table.Th>Sana</Table.Th>
+                            </Table.Tr>
+                        </Table.Thead>
 
-                    <Table.Tbody>{rows}</Table.Tbody>
-                </Table>
-            </Table.ScrollContainer>
-        </Stack>
-    </Card>
+                        <Table.Tbody>{rows}</Table.Tbody>
+                    </Table>
+                </Table.ScrollContainer>
+            </Stack>
+        </Card>
     </>
   )
 }
