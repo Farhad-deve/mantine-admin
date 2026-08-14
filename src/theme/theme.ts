@@ -28,5 +28,6 @@ export const theme = createTheme({
       h5: { fontSize: "0.875rem" },
       h6: { fontSize: "0.75rem" },
     }
-  }
+  },
+  cursorType: "pointer"
 });
