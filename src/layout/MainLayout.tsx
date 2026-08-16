@@ -70,12 +70,14 @@ const MainLayout = () => {
                 onClick={toggleMobile}
                 hiddenFrom="sm"
                 size="sm"
+                aria-label="Navbarni ochish va yopish"
               />
               <Burger
                 opened={desktopOpened}
                 onClick={toggleDesktop}
                 visibleFrom="sm"
                 size="sm"
+                aria-label="Navbarni ochish va yopish"
               />
               <Title size="lg" fw={600}>Mantine Admin</Title>
               <Badge variant="light" visibleFrom="xs">DEMO</Badge>
@@ -87,6 +89,7 @@ const MainLayout = () => {
                   onClick={() => setColorScheme(computedColorScheme === "dark" ? "light" : "dark")}
                   variant="default"
                   p={"md"}
+                  aria-label="Mavzuni almashtirish"
                 >
                   <Center>
                     {computedColorScheme === "dark" ? <BsSun size={18} /> : <BiMoon size={18} />}

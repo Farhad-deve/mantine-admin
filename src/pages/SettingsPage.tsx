@@ -19,10 +19,15 @@ import {
   useMantineColorScheme,
   type MantineRadius,
 } from "@mantine/core";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const Settings = () => {
+
+  useEffect(() => {
+    document.title = "Sozlamalar | Mantine Admin";
+  }, [])
+
   const colorSwatchData = [
     { color: "blue", value: "var(--mantine-color-blue-6)" },
     { color: "brand", value: "var(--mantine-color-brand-6)" },

@@ -92,7 +92,7 @@ const FilteredUsersAndTabs = () => {
                             size={10}
                             color={!loading && user.online ? "teal" : "transparent"}
                         >
-                            <Avatar size={"lg"} color={user.color}>
+                            <Avatar size={"lg"} color={user.color} aria-label={user.name}>
                             {user.initials}
                             </Avatar>
                         </Indicator>
@@ -125,13 +125,13 @@ const FilteredUsersAndTabs = () => {
 
                         <Group mt={"md"} gap={"xs"}>
                         <Tooltip label="Xat yuborish">
-                            <ActionIcon variant="light">
+                            <ActionIcon variant="light" aria-label="Xat yuborish">
                             <FiMail />
                             </ActionIcon>
                         </Tooltip>
 
                         <Tooltip label="Xabar yuborish">
-                            <ActionIcon variant="light" color="green">
+                            <ActionIcon variant="light" color="green" aria-label="Xabar yuborish">
                             <FiMessageSquare />
                             </ActionIcon>
                         </Tooltip>

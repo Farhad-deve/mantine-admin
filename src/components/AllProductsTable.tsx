@@ -79,7 +79,7 @@ const AllProductsTable = ({ products, onDeleteRequest }: AllProductsTableProps) 
           <Table.Td>
             <Menu position="bottom-end">
               <Menu.Target>
-                <ActionIcon variant="subtle" color="dark">
+                <ActionIcon variant="subtle" color="dark" aria-label="Menyuni ochish">
                   <FiMoreVertical />
                 </ActionIcon>
               </Menu.Target>

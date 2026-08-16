@@ -5,9 +5,14 @@ import TrafficSources from "../components/TrafficSources";
 import PlanCompletion from "../components/PlanCompletion";
 import OrdersTable from "../components/OrdersTable";
 import LastTimeline from "../components/LastTimeline";
+import { useEffect } from "react";
 
 
 const Dashboard = () => {
+
+  useEffect(() => {
+    document.title = "Dashboard | Mantine Admin";
+  }, [])
 
   return (
     <>

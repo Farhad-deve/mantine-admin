@@ -4,9 +4,13 @@ import AllProductsTable from "../components/AllProductsTable";
 import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
 import type { Product } from "../types/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Products = () => {
+
+  useEffect(() => {
+    document.title = "Mahsulotlar | Mantine Admin";
+  }, [])
 
   const initialProducts: Product[] = [
     { id: 1, name: "Aurora klaviatura", category: "Aksessuar", price: 349000, stock: 42, status: "active", rating: 5 },

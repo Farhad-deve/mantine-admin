@@ -7,8 +7,13 @@ import {
   Title,
 } from "@mantine/core";
 import FilteredUsersAndTabs from "../components/FilteredUsersAndTabs";
+import { useEffect } from "react";
 
 const Users = () => {
+
+  useEffect(() => {
+    document.title = "Foydalanuvchilar | Mantine Admin";
+  }, [])
 
   return (
     <>
