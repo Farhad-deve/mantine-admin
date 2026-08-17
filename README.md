@@ -83,7 +83,8 @@ The project was created as a Mantine UI practice project, focusing on building a
 Clone the repository and install the dependencies:
 
 ```bash
-npm install
+git clone https://github.com/farhad-deve/mantine-admin.git
+cd your-repo-name
 ```
 
 ### Development
