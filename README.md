@@ -5,15 +5,13 @@
 [![Mantine](https://img.shields.io/npm/v/@mantine/core?style=flat&logo=mantine&labelColor=000000&label=Mantine&color=339AF0)](https://mantine.dev/)
 [![Vite](https://img.shields.io/npm/v/vite?style=flat&logo=vite&labelColor=000000&label=Vite&color=9135FF)](https://vite.dev/)
 [![React Router](https://img.shields.io/npm/v/react-router-dom?style=flat&logo=reactrouter&labelColor=000000&label=React%20Router&color=CA4245)](https://reactrouter.com/)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-2ea44f?style=flat&logo=github&logoColor=white)](https://your-username.github.io/your-repo-name/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-2ea44f?style=flat&logo=github&logoColor=white)](https://farhad-deve.github.io/mantine-admin/)
 
 A responsive admin dashboard built with React, TypeScript, Mantine UI, and React Router.
 
 The project was created as a Mantine UI practice project, focusing on building a responsive interface and implementing interactive components and application state.
 
 **Built with:** React · TypeScript · Mantine UI · Vite · React Router
-
-[Visit Live 🚀](https://farhad-deve.github.io/mantine-admin)
 
 ## Table of Contents
 - [Screenshots](#-screenshots)
