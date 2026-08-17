@@ -84,7 +84,7 @@ Clone the repository and install the dependencies:
 
 ```bash
 git clone https://github.com/farhad-deve/mantine-admin.git
-cd your-repo-name
+cd mantine-admin
 ```
 
 ### Development
