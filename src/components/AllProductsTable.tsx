@@ -114,35 +114,39 @@ const AllProductsTable = ({ products, onDeleteRequest }: AllProductsTableProps) 
                   clearable
               />
           </Group>
-
+          
           <Table.ScrollContainer minWidth={680}>
-              <Table highlightOnHover verticalSpacing={"sm"}>
-                  <Table.Thead>
-                      <Table.Tr>
-                          <Table.Th>Mahsulot</Table.Th>
-                          <Table.Th>Kategoriya</Table.Th>
-                          <Table.Th>Narx</Table.Th>
-                          <Table.Th>Ombor</Table.Th>
-                          <Table.Th>Reyting</Table.Th>
-                          <Table.Th>Holat</Table.Th>
-                          <Table.Th w={40}></Table.Th>
-                      </Table.Tr>
-                  </Table.Thead>
+                  <Table highlightOnHover verticalSpacing={"sm"}>
+                      <Table.Thead>
+                          <Table.Tr>
+                              <Table.Th>Mahsulot</Table.Th>
+                              <Table.Th>Kategoriya</Table.Th>
+                              <Table.Th>Narx</Table.Th>
+                              <Table.Th>Ombor</Table.Th>
+                              <Table.Th>Reyting</Table.Th>
+                              <Table.Th>Holat</Table.Th>
+                              <Table.Th w={40}></Table.Th>
+                          </Table.Tr>
+                      </Table.Thead>
 
-                  <Table.Tbody>{rows}</Table.Tbody>
-              </Table>
+                      <Table.Tbody>{rows}</Table.Tbody>
+                  </Table>
           </Table.ScrollContainer>
 
-          <Group justify="space-between">
-            <Text c={"dimmed"} size="sm">{filteredProducts.length} tadan {paginatedProducts.length} tasi</Text>
-            
-            <Pagination
-              size={"sm"}
-              value={page}
-              onChange={setPage}
-              total={totalPages}
-             />
-          </Group>
+          {filteredProducts.length === 0 ? (
+            <Text c={"dimmed"} ta={"center"} py={"xl"}>Hech narsa topilmadi</Text>
+          ) : (
+            <Group justify="space-between">
+                <Text c={"dimmed"} size="sm">{filteredProducts.length} tadan {paginatedProducts.length} tasi</Text>
+                
+                <Pagination
+                  size={"sm"}
+                  value={page}
+                  onChange={setPage}
+                  total={totalPages}
+                />
+            </Group>
+          )}
         </Stack>
       </Card>
     </>
